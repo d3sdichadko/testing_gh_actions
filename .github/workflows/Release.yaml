@@ -1,0 +1,20 @@
+---
+name: Release
+
+on:
+  workflow_run:
+    workflows: ["Run Tests"]
+    branches:
+      - 'dev'
+    types:
+      - completed
+
+jobs:
+  build:
+    name: Building the image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Start building
+        run: echo "Building"
